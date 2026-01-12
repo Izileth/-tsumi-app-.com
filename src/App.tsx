@@ -8,7 +8,7 @@ const App = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     
@@ -91,15 +91,6 @@ const App = () => {
               <div
                 key={i}
                 className="absolute bg-red-600"
-                style={{
-                  width: '1px',
-                  height: Math.random() * 100 + 50 + 'px',
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
-                  opacity: Math.random() * 0.5,
-                  animation: `fadeInOut ${Math.random() * 3 + 2}s ease-in-out infinite`,
-                  animationDelay: Math.random() * 2 + 's'
-                }}
               />
             ))}
           </div>
