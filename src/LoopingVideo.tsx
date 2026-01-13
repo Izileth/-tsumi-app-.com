@@ -12,7 +12,7 @@ const LoopingVideo = () => {
                     opacity: 0.1
                 }}
             >
-                <source src="https://videos.pexels.com/video-files/853877/853877-hd_1920_1080_25fps.mp4" type="video/mp4" />
+                <source src="https://v1.pinimg.com/videos/iht/expMp4/73/10/0a/73100ac3ba00396f3c30bd44e558dce6_720w.mp4" type="video/mp4" />
             </video>
         </div>
     );

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Menu, X, ChevronDown, Download, Users, Target, Trophy, Shield } from 'lucide-react';
 import Splash from './Splash';
+import LoopingVideo from './LoopingVideo';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -215,18 +216,7 @@ const App = () => {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center px-6">
         <div className="absolute inset-0 overflow-hidden">
-          <motion.div 
-            className="absolute inset-0 opacity-5"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.05 }}
-            transition={{ duration: 2 }}
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1920&h=1080&fit=crop"
-              alt="City night"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
+          <LoopingVideo />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
         </div>
 
@@ -248,6 +238,7 @@ const App = () => {
               transition={{ delay: 0.5, duration: 0.8 }}
             ></motion.div>
           </motion.div>
+
           
           <motion.h1 
             className="text-7xl md:text-9xl font-extralight tracking-tight mb-8 leading-none"
@@ -465,7 +456,14 @@ const App = () => {
   );
 };
 
-const FeatureCard = ({ feature, Icon, idx }) => {
+interface Feature {
+  icon: React.ComponentType<any>;
+  title: string;
+  desc: string;
+  image: string;
+}
+
+const FeatureCard = ({ feature, Icon, idx }: { feature: Feature; Icon: React.ComponentType<any>; idx: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -516,7 +514,14 @@ const FeatureCard = ({ feature, Icon, idx }) => {
   );
 };
 
-const RankBar = ({ rank, idx }) => {
+type Rank = {
+  name: string;
+  kanji: string;
+  progress: number;
+};
+
+
+const RankBar = ({ rank: Rank, idx }: { rank: Rank; idx: number }) => {
   return (
     <motion.div 
       className="group"
@@ -527,7 +532,7 @@ const RankBar = ({ rank, idx }) => {
     >
       <div className="flex items-end justify-between mb-6">
         <div>
-          <span className="text-3xl font-light">{rank.name}</span>
+          <span className="text-3xl font-light">{Rank.name}</span>
           <motion.span 
             className="text-red-500 ml-4 text-2xl"
             initial={{ opacity: 0, x: -10 }}
@@ -535,7 +540,7 @@ const RankBar = ({ rank, idx }) => {
             viewport={{ once: true }}
             transition={{ delay: idx * 0.2 + 0.3 }}
           >
-            {rank.kanji}
+            {Rank.kanji}
           </motion.span>
         </div>
         <motion.span 
@@ -545,14 +550,14 @@ const RankBar = ({ rank, idx }) => {
           viewport={{ once: true }}
           transition={{ delay: idx * 0.2 + 0.5 }}
         >
-          {rank.progress}%
+          {Rank.progress}%
         </motion.span>
       </div>
       <div className="h-px bg-red-950/30 overflow-hidden">
         <motion.div
           className="h-full bg-red-600"
           initial={{ width: 0 }}
-          whileInView={{ width: `${rank.progress}%` }}
+          whileInView={{ width: `${Rank.progress}%` }}
           viewport={{ once: true }}
           transition={{ delay: idx * 0.2 + 0.4, duration: 1.2, ease: "easeOut" }}
         ></motion.div>
