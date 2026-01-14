@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { MobileSidebar } from './MobileSidebar';
 import { navLinks } from '../data';
 
-export const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface NavigationProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -31,7 +34,7 @@ export const Navigation = () => {
               className="flex items-center gap-3"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-xl font-light tracking-[0.3em]">
+              <span className="text-xl  font-light tracking-[0.3em]">
                 TSUMI
               </span>
             </motion.div>
@@ -62,9 +65,6 @@ export const Navigation = () => {
           </div>
         </div>
       </motion.nav>
-      <AnimatePresence>
-        {isOpen && <MobileSidebar setIsOpen={setIsOpen} />}
-      </AnimatePresence>
     </>
   );
 };

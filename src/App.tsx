@@ -4,6 +4,7 @@ import Splash from './Splash';
 import { ProgressBar } from './components/ProgressBar';
 import { CursorEffect } from './components/CursorEffect';
 import { Navigation } from './components/Navigation';
+import { MobileSidebar } from './components/MobileSidebar';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
 import { Ranks } from './components/Ranks';
@@ -13,6 +14,7 @@ import { Footer } from './components/Footer';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,7 +38,10 @@ const App = () => {
           >
             <ProgressBar />
             <CursorEffect />
-            <Navigation />
+            <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
+            <AnimatePresence>
+              {isOpen && <MobileSidebar setIsOpen={setIsOpen} />}
+            </AnimatePresence>
             <main>
               <Hero />
               <Features />

@@ -12,7 +12,7 @@ export const MobileSidebar = ({ setIsOpen }: MobileSidebarProps) => (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm md:hidden"
+      className="fixed inset-0 w-full max-w-full bg-black/80 backdrop-blur-sm md:hidden"
       onClick={() => setIsOpen(false)}
     />
     <motion.div
@@ -24,7 +24,7 @@ export const MobileSidebar = ({ setIsOpen }: MobileSidebarProps) => (
         damping: 25,
         stiffness: 200,
       }}
-      className="fixed right-0 top-0 bottom-0 w-80 bg-gradient-to-b from-black via-red-950/10 to-black border-l border-red-950/30 md:hidden z-50"
+      className="fixed right-0 top-0 bottom-0 w-full bg-gradient-to-b from-black via-red-950/10 to-black border-l border-red-950/30 md:hidden z-50"
     >
       <div className="p-6">
         <motion.button
