@@ -1,21 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap');
 @import "tailwindcss";
 
 html{
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-snap-align: start;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-snap-align: start;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     overflow-x: hidden;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
@@ -30,13 +17,13 @@ html::-webkit-scrollbar {
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* Playfair Display often looks good with a bolder weight for headings */
 }
 a {
     color: inherit;

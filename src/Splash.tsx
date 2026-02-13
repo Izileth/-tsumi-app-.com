@@ -68,7 +68,7 @@ const Splash = () => {
         cancelAnimationFrame(frameId);
       }
     };
-  }, [targetText]);
+  }, [targetText, decryptedText]);
 
   useEffect(() => {
     if (!isComplete) return;

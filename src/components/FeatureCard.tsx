@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface Feature {
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   desc: string;
   image: string;
 }
 
-export const FeatureCard = ({ feature, Icon, idx }: { feature: Feature; Icon: React.ComponentType<any>; idx: number }) => {
+export const FeatureCard = ({ feature, Icon, idx }: { feature: Feature; Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; idx: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
