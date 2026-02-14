@@ -41,7 +41,8 @@ export const FeatureCard = ({ feature, Icon, idx }: { feature: Feature; Icon: Re
           transition={{ duration: 0.6 }}
         >
           <Icon 
-            size={32} 
+            width={32}
+            height={32}
             className="mb-8 text-red-600"
             strokeWidth={1.5}
           />
